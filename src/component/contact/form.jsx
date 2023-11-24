@@ -1,13 +1,20 @@
 import React from 'react'
-//import SinField from './sinf.jsx'
+//import * as fiel form 'sinf.jsx'
+import {Sinfrom, Textarea, Select} from './sinf.jsx'
+
 import PropTypes from 'prop-types'
 
 function Form(props){
-  console.log('hellow')
+  let country = ['bangladesh', 'china', 'india', 'srilankha']
   return(
     <div>
       <form onSubmit={props.formh}>
-        <input type={props.type} name={props.name}/>
+        <Sinfrom type="text" name="name" />
+        <Sinfrom type="email" name="email" />
+        <Sinfrom type="password" name="password" />
+        <Textarea mess="message" />
+        <Select name="country" value={country} con={country}/>
+        <button type="submit">sumit</button>
       </form>
     </div>
     )
@@ -15,8 +22,6 @@ function Form(props){
 }
 Form.propTypes={
   formh: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
 }
 
 export default Form

@@ -3,18 +3,22 @@ import Header from '../heade/header.jsx'
 import Myform from './form.jsx'
 class Form extends React.Component{
   state ={
-    name: '',
-    email: '',
-    password: '',
-    phone: ''
+    data: []
   }
   hi(){
     return 'sayid'
   }
   chang=(e)=>{
-    console.log(this)
     e.preventDefault()
-    this.setState({name: e.target.Fname.value})
+    this.setState({data: [...this.state.data,{
+      name:e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value, 
+      massage: e.target.message.value,
+      country: e.target.country.value
+    }]
+  })
+    console.log(this.state.data)
   }
   sinChang=(e)=>{
     this.setState({[e.target.name]: e.target.value})
@@ -23,7 +27,7 @@ class Form extends React.Component{
       return(
         <div>
             <Header />
-            <Myform formh={this.chang} type="text" name="name" />
+            <Myform formh={this.chang} />
         </div>
       	
       	)
